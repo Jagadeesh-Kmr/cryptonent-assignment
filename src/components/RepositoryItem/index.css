@@ -3,21 +3,50 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 280px;
+  width: 100%;
+  margin-left: 50px;
 }
 
-.profile-img {
-  border-radius: 2px;
-  margin-right: 60px;
+@media screen and (min-width: 768px) {
+  .profile-img-md {
+    display: none;
+  }
+
+  .profile-img-lg {
+    border-radius: 2px;
+    margin-right: 30px;
+  }
+
+  .name {
+    width: 300px;
+    font-family: 'Roboto';
+    font-size: 20px;
+  }
+
+  .gender-phone {
+    font-family: 'Roboto';
+    font-size: 20px;
+  }
 }
 
-.name {
-  width: 200px;
-  font-family: 'Roboto';
-  font-size: 20px;
-}
+@media screen and (max-width: 768px) {
+  .profile-img-lg {
+    display: none;
+  }
 
-.gender-phone {
-  font-family: 'Roboto';
-  font-size: 20px;
+  .profile-img-md {
+    border-radius: 2px;
+    margin-right: 30px;
+  }
+
+  .name {
+    width: 200px;
+    font-family: 'Roboto';
+    font-size: 10px;
+  }
+
+  .gender-phone {
+    font-family: 'Roboto';
+    font-size: 10px;
+  }
 }

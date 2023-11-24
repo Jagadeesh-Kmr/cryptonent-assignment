@@ -32,13 +32,14 @@ class GithubPopularRepos extends Component {
 
     if (response.ok === true) {
       const fetchedData = await response.json()
-      console.log(fetchedData)
 
       const updatedOtherDetails = fetchedData.results.map(eachData => ({
         id: eachData.id,
+        name: eachData.name,
         gender: eachData.gender,
+        phone: eachData.phone,
+        picture: eachData.picture,
       }))
-      console.log(updatedOtherDetails)
 
       this.setState({
         apiStatus: apiStatusConstants.success,

@@ -2,20 +2,19 @@ import './index.css'
 
 const RepositoryItem = props => {
   const {repositoryDetails} = props
-  const {gender} = repositoryDetails
+  const {name, gender, phone, picture} = repositoryDetails
   return (
     <li>
       <div className="details-container">
-        <img
-          src="https://randomuser.me/api/portraits/women/88.jpg"
-          alt="profile"
-          className="profile-img"
-        />
+        <img src={picture.large} alt="profile-lg" className="profile-img-lg" />
+        <img src={picture.medium} alt="profile-md" className="profile-img-md" />
 
         <div className="person-details">
-          <p className="name">First Name Last Name</p>
+          <p className="name">
+            {name.first} {name.last}
+          </p>
           <p className="gender-phone">{gender}</p>
-          <p className="gender-phone">Phone Number</p>
+          <p className="gender-phone">{phone}</p>
         </div>
       </div>
     </li>
