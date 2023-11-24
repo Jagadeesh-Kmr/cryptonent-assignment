@@ -26,21 +26,23 @@ class GithubPopularRepos extends Component {
     this.setState({
       apiStatus: apiStatusConstants.pending,
     })
-    const url = 'https://randomuser.me/api/?page=1&results=1&seed=abc'
 
+    const url = 'https://randomuser.me/api/?page=1&results=1&seed=abc'
     const response = await fetch(url)
 
     if (response.ok === true) {
       const fetchedData = await response.json()
-      const updatedData = fetchedData.popular_repos.map(eachRepository => ({
-        id: eachRepository.id,
-        imageUrl: eachRepository.avatar_url,
-        name: eachRepository.name,
+      console.log(fetchedData)
+
+      const updatedOtherDetails = fetchedData.results.map(eachData => ({
+        id: eachData.id,
+        gender: eachData.gender,
       }))
+      console.log(updatedOtherDetails)
 
       this.setState({
         apiStatus: apiStatusConstants.success,
-        reposData: updatedData,
+        reposData: updatedOtherDetails,
       })
     } else {
       this.setState({
@@ -70,7 +72,7 @@ class GithubPopularRepos extends Component {
     const {reposData} = this.state
 
     return (
-      <ul className="repositories-list">
+      <ul className="repositories-ul-list">
         {reposData.map(eachData => (
           <RepositoryItem key={eachData.id} repositoryDetails={eachData} />
         ))}
@@ -94,14 +96,9 @@ class GithubPopularRepos extends Component {
   }
 
   render() {
-    const {reposData} = this.state
-    console.log(reposData)
     return (
       <div className="app-container">
-        <div className="responsive-container">
-          <h1 className="popular-h1">Popular</h1>
-          {this.renderApiCall()}
-        </div>
+        <div className="responsive-container">{this.renderApiCall()}</div>
       </div>
     )
   }

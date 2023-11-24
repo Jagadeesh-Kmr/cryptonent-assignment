@@ -1,1 +1,23 @@
 /* Write your CSS here */
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+}
+
+.profile-img {
+  border-radius: 2px;
+  margin-right: 60px;
+}
+
+.name {
+  width: 200px;
+  font-family: 'Roboto';
+  font-size: 20px;
+}
+
+.gender-phone {
+  font-family: 'Roboto';
+  font-size: 20px;
+}
